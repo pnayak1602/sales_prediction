@@ -1,0 +1,42 @@
+<%- include("header") -%>
+                    <!-- Content Row -->
+                    <div class="row">
+                        <% for(var i=0;i<result.length;i++) { %>
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-lg-4">
+                            <!-- Basic Card Example -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary"><%= result[i].name %></h6>
+                                </div>
+                                <div class="card-body">
+                                    <img src=<%= result[i].imgURL %> class="circle-image">
+                                    <br><br><br><span class="left">Price</span> : <span class="right">Rs. <%= result[i].price %></span>
+                                    <% Object.keys(result[i].specs).forEach(function(key) { %>
+                                        <% if (key==='engine') { %>
+                                        <br><span class="left"><%= key %></span> : <span class="right"><%= result[i]["specs"][key] %> cc</span>
+                                        <% } else if (key==='bhp') { %>
+                                            <br><span class="left"><%= key %></span> : <span class="right"><%= result[i]["specs"][key] %> bhp</span>
+                                        <% } else if (key==='mileage') { %>
+                                            <br><span class="left"><%= key %></span> : <span class="right"><%= result[i]["specs"][key] %> kmpl</span>
+                                        <% } else if (key==='bootSpace') { %>
+                                            <br><span class="left"><%= key %></span> : <span class="right"><%= result[i]["specs"][key] %> L(Liters)</span>
+                                        <% } else { %>
+                                            <br><span class="left"><%= key %></span> : <span class="right"><%= result[i]["specs"][key] %></span>
+                                        <% } %>
+                                    <% }); %>                                      
+                                    <br><a href=<%= result[i].knowMoreLink %>>Know More...</a>
+                                    <br>
+                                    <br>
+                                    <form action="/view-review" method="post"><input type="hidden" name="companyName" value= <%= result[i].companyName %>><button class="btn btn-primary my-button" type="submit" name="view" value=<%= result[i].useName %>>View Reviews</button></form>
+                                    <br>
+                                    <form action="/write-review" method="post"><input type="hidden" name="companyName" value= <%= result[i].companyName %>><button class="btn btn-primary my-button" type="submit" name="write" value=<%= result[i].useName %>>Write a review</button></form>
+                                </div>
+                            </div>
+                    <!-- Content Row -->
+                        </div>
+                        <% } %>
+                <!-- /.container-fluid -->
+                    </div>
+            <!-- End of Main Content -->
+<%- include("footer") -%>

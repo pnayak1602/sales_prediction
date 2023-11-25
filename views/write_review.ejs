@@ -1,0 +1,27 @@
+<%- include("header") -%>
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-lg-12">
+                            <!-- Basic Card Example -->
+                            <div class="card shadow mb-4">
+                                <form action="/new-review" method="post">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary"><label>Enter your username : </label> <input type="text" name="username" placeholder="Enter username"></h6>
+                                </div>
+                                <div class="card-body">
+                                    <label>Please give your review:</label><br>
+                                    <textarea name="review" cols="100" rows="5"></textarea>
+                                    <br>
+                                    <br>
+                                    <button class="btn btn-primary my-button" type="submit" name="submit">Submit Review</button>
+                                    <br>
+                                </div>
+                            </form>
+                            </div>
+                    <!-- Content Row -->
+                        </div>
+                <!-- /.container-fluid -->
+                    </div>
+            <!-- End of Main Content -->
+<%- include("footer") -%>
